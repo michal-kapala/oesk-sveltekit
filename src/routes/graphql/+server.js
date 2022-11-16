@@ -73,6 +73,8 @@ const handler = getDefaultHandler(
 
 		type Query {
 			level1: [Obj1],
+			level2: [Obj1],
+			level5: [Obj1],
 			level10: [Obj1],
 		}
 	`,
@@ -82,6 +84,45 @@ const handler = getDefaultHandler(
 				return prisma.Obj1.findMany({
 					select: {
 						name1: true,
+					}
+				})
+			},
+			level2: () => { 
+				return prisma.Obj1.findMany({
+					select: {
+						name1: true,
+						Obj2: {
+							select: {
+								name2: true
+							}
+						}
+					}
+				})
+			},
+			level5: () => {
+				return prisma.Obj1.findMany({
+					select: {
+						name1: true,
+						Obj2: {
+							select: {
+								name2: true,
+								Obj3: {
+									select: {
+										name3: true,
+										Obj4: {
+											select: {
+												name4: true,
+												Obj5: {
+													select: {
+														name5: true,
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
 					}
 				})
 			},

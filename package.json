@@ -6,7 +6,8 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"lint": "prettier --plugin-search-dir . --check .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"start": "node express.js"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.0",
@@ -21,7 +22,10 @@
 	"type": "module",
 	"dependencies": {
 		"@prisma/client": "^4.6.1",
+		"@sveltejs/adapter-node": "^1.0.0-next.100",
 		"apollo-server-svelte-kit": "^3.10.0",
+		"cors": "^2.8.5",
+		"express": "^4.18.2",
 		"graphql": "^16.6.0",
 		"js-md5": "^0.7.3",
 		"prisma": "^4.6.1"

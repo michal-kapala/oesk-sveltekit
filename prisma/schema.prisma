@@ -1,5 +1,5 @@
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -7,85 +7,79 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Test {
-  id            Int      @id @default(autoincrement())
-  created_at    DateTime
-}
-
 model Obj1 {
   id      Int     @id @default(autoincrement())
-  name1   String?
+  name1   String
   id_obj2 Int @unique
   Obj2    Obj2? @relation(fields: [id_obj2], references: [id])
 }
 
 model Obj2 {
   id      Int     @id @default(autoincrement())
-  name2   String?
-  parent Obj1?
+  name2   String
+  parent  Obj1?
   id_obj3 Int @unique
   Obj3    Obj3? @relation(fields: [id_obj3], references: [id])
 }
 
 model Obj3 {
   id      Int     @id @default(autoincrement())
-  name3   String?
-  parent Obj2?
+  name3   String
+  parent  Obj2?
   id_obj4 Int @unique
   Obj4    Obj4? @relation(fields: [id_obj4], references: [id])
 }
 
 model Obj4 {
   id      Int     @id @default(autoincrement())
-  name4   String?
-  parent Obj3?
+  name4   String
+  parent  Obj3?
   id_obj5 Int @unique
   Obj5    Obj5? @relation(fields: [id_obj5], references: [id])
 }
 
 model Obj5 {
   id      Int     @id @default(autoincrement())
-  name5   String?
-  parent Obj4?
+  name5   String
+  parent  Obj4?
   id_obj6 Int @unique
   Obj6    Obj6? @relation(fields: [id_obj6], references: [id])
 }
 
 model Obj6 {
   id      Int     @id @default(autoincrement())
-  name6   String?
-  parent Obj5?
+  name6   String
+  parent  Obj5?
   id_obj7 Int @unique
   Obj7    Obj7? @relation(fields: [id_obj7], references: [id])
 }
 
 model Obj7 {
   id      Int     @id @default(autoincrement())
-  name7   String?
-  parent Obj6?
+  name7   String
+  parent  Obj6?
   id_obj8 Int @unique
   Obj8    Obj8? @relation(fields: [id_obj8], references: [id])
 }
 
 model Obj8 {
   id      Int     @id @default(autoincrement())
-  name8   String?
-  parent Obj7?
+  name8   String
+  parent  Obj7?
   id_obj9 Int @unique
   Obj9    Obj9? @relation(fields: [id_obj9], references: [id])
 }
 
 model Obj9 {
-  id      Int     @id @default(autoincrement())
-  name9   String?
-  parent Obj8?
-  id_obj10 Int @unique
-  Obj10    Obj10? @relation(fields: [id_obj10], references: [id])
+  id        Int     @id @default(autoincrement())
+  name9     String
+  parent    Obj8?
+  id_obj10  Int @unique
+  Obj10     Obj10? @relation(fields: [id_obj10], references: [id])
 }
 
 model Obj10 {
   id      Int     @id @default(autoincrement())
-  ints    Int[]
-  parent Obj9?
-  id_obj10 Int
+  name10  String
+  parent  Obj9?
 }

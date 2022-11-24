@@ -15,10 +15,16 @@ The project contains sample generated data in `prisma/database.sqlite3`. The add
 
 The SvelteKit app lives on Express server to resolve issues related to CORS origin within Apollo Server while running in adapter's bare NodeJS. 
 
+Generate Prisma Client:
+```
+npx prisma generate
+```
+
 Build the project:
 ```
 npm run build
 ```
+
 Run the Express server:
 ```
 npm run start

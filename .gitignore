@@ -10,3 +10,4 @@ node_modules
 .output
 
 /prisma/migrations
+*.dbml
